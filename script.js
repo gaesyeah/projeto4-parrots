@@ -1,8 +1,8 @@
-let IMG1;
-let IMG2;
-let contador = 0;
-let victoryPTs = 0;
-let victory = 0;
+let IMG1; /*guarda o texto(que está como hidden mesmo pra não aparecer) para verificar se as cartas clicadas são iguais*/
+let IMG2; /*guarda o texto(que está como hidden mesmo pra não aparecer) para verificar se as cartas clicadas são iguais*/
+let contador = 0; /*verifica se tem uma, duas ou nenhuma carta selecionada*/
+let victoryPTs = 0; /*conta quantas vezes o jogador clicou em cartas*/
+let victory = 0; /*conta quantas vezes o jogador acertou os pares, e na function VERIFY() é verificado se esse numero é igual a QTDcartas*/
 
 /*variaveis para salvar quais divs estão viradas, para caso sejam diferentes a function DIFFERENT() desvirar elas*/
 let NEWfront1;
@@ -123,16 +123,11 @@ function VERIFY() {
         },1000);
     }
 }
+/*gira as cartas para a posição original caso elas não sejam iguais*/
 function DIFFERENT() {
-    
     NEWfront1.classList.remove('new_front-face');
     NEWback1.classList.remove('new_back-face');
-
     
     NEWfront2.classList.remove('new_front-face');
     NEWback2.classList.remove('new_back-face');
 }
-
-
-
-
