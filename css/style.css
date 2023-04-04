@@ -1,0 +1,41 @@
+body{
+    background-color: #EEF9BF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+    text-align: center;
+}
+img{
+    width: 100%;
+}
+@media (max-width: 614px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+/*ADICIONAR CLASSES QUE DEFINEM O TAMANHO, E APLICA-LAS BASEADO NA QUANTIDADE DE CARTAS QUE O JOGADOR ESCOLHEU*/
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90%;
+}
+.card{
+    margin: 17px;
+}
+.hidden {
+    display: none;
+}
+
