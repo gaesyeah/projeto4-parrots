@@ -17,14 +17,15 @@
     transition: all .5s;
     transform-style: preserve-3d;
     }
+
+/*----------------------------------*/
 .back-face {
     transform: rotateY(180deg);
 }
-/*TIRAR HOVER E ADICIONAR COM ONCLICK*/
-.card:hover .back-face {  
+.new_back-face {  
     transform: rotateY(0deg);
 }
-/*TIRAR HOVER E ADICIONAR COM ONCLICK*/
-.card:hover .front-face {
+.new_front-face {
     transform: rotateY(-180deg);
 }
+/*----------------------------------*/

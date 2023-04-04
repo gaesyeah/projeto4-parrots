@@ -23,6 +23,7 @@ img{
     .container {
         flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 }
 /*ADICIONAR CLASSES QUE DEFINEM O TAMANHO, E APLICA-LAS BASEADO NA QUANTIDADE DE CARTAS QUE O JOGADOR ESCOLHEU*/
@@ -30,7 +31,7 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 90%;
+    width: 1638px;
 }
 .card{
     margin: 17px;
@@ -38,4 +39,22 @@ img{
 .hidden {
     display: none;
 }
+
+/*----------------------------------------*/
+.size1{
+    width: 468px;
+}
+.size2{
+    width: 702px;
+}
+.size3{
+    width: 936px;
+}
+.size4{
+    width: 1170px;
+}
+.size5{
+    width: 1404px;
+}
+/*----------------------------------------*/
 
