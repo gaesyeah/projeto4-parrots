@@ -39,6 +39,9 @@ img{
 .hidden {
     display: none;
 }
+.hidden_text { /*CRIEI UMA IGUAL A .hidden PARA PARTES IMPORTANTES DO MEU JS NÃO SE SOBRESCREVEREM*/
+    display: none;
+}
 
 /*----------------------------------------*/
 .size1{
