@@ -200,9 +200,9 @@ function EQUALS() {
     restart1.forEach(JS => JS.classList.remove('new_front-face'));
     let restart2 = document.querySelectorAll('.new_back-face');
     restart2.forEach(JS => JS.classList.remove('new_back-face'));
-//chama novamente a função da dificuldade para definir a quantidade de cartas na tela, escolhida pelo usuario
+//deixa apenas a classe container nessa tag(para redefinir o tamanho do container)
+    let elemento = document.querySelector('.container');
+    elemento.className = "container";
+//chama novamente a função da dificuldade para redefinir o tamanho do container e a quantidade de cartas na tela
     DIFFICULTY();
-//retira a classe que define o tamanho do container, com base na nova quantidade de cartas selecionada
-
-
 }
