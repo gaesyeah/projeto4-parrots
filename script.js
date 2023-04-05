@@ -6,7 +6,7 @@ let victory = 0; /*conta quantas vezes o jogador acertou os pares, e na function
 let QTDcartas = 0;
 /*--------------------------------------------------------------------*/
 let lista_cartas,REcontainer, x,y;
-/*-------------------------------------*/
+/*--------------------------------------------------------------------*/
 
 START();
 
@@ -110,7 +110,6 @@ function select(cards) {
         NEWback1 = cards.querySelector('.back-face');
         NEWback1.classList.add('new_back-face');
 
-
     } else if (contador === 1) {
 
         victoryPTs = victoryPTs + 1;
@@ -162,8 +161,6 @@ function VERIFY() {
             },100);
         }
     } else {
-
-        
 
         setTimeout(function(){
             DIFFERENT();
