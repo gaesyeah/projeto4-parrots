@@ -4,7 +4,6 @@ let contador = 0; /*verifica se tem uma, duas ou nenhuma carta selecionada*/
 let victoryPTs = 0; /*conta quantas vezes o jogador clicou em cartas*/
 let victory = 0; /*conta quantas vezes o jogador acertou os pares, e na function VERIFY() é verificado se esse numero é igual a QTDcartas*/
 let QTDcartas = 0;
-
 /*--------------------------------------------------------------------*/
 let lista_cartas,REcontainer, x,y;
 /*--------------------------------------------------------------------*/
@@ -208,8 +207,11 @@ function EQUALS() {
         elemento.className = "container";
     //chama novamente a função da dificuldade para redefinir o tamanho do container e a quantidade de cartas na tela
         DIFFICULTY();
+        
     } else if (replay === 'não') {
-
+        let z = document.querySelector('.container');
+        let w = z.querySelectorAll('div');
+        w.forEach(JS => JS.setAttribute('onclick', null)); 
     } else {
         replay = '';
         alert('você não digitou sim ou não corretamente, digite novamente')
