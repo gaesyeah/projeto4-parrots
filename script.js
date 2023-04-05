@@ -150,13 +150,14 @@ function VERIFY() {
 
     contador = 0; /*PARA ZERAR O VALOR DO CONTADOR*/
 
-    ANTIbug(); /*DESABILITA O ONCLICK DE TODAS AS CARTAS POR 1S APÓS DUAS SEREM*/
+    ANTIbug();
 
     if (IMG1 === IMG2) {
         victory = victory + 2;
 
         if (victory == QTDcartas) {
             setTimeout(function(){
+                alert(`Você ganhou em ${victoryPTs} jogadas!`);
                 EQUALS();
             },100);
         }
@@ -179,30 +180,40 @@ function DIFFERENT() {
 
 function EQUALS() {
 
-    alert(`Você ganhou em ${victoryPTs} jogadas!`);
+    let replay = prompt('Gostaria de reiniciar a partida? Por favor, digite sim ou não')
 
-//"zera" o valor das variaveis necessárias para a função onclick funcionar do "zero" 
-    IMG1 ='';
-    IMG2 ='';
-    contador = 0;
-    victoryPTs = 0;
-    victory = 0;
-    QTDcartas = 0;
-//chama novamente a função para ser perguntada a quantidade de cartas ao usuario
-    START();
-//chama novamente a função para reembaralhar
-    MESS();
-//remove o hidden de todas as cartas para que elas possam ser "recolocadas" com a função DIFFICULTY() usando os valores da START();
-    let reDO = document.querySelectorAll('.hidden');
-    reDO.forEach(JS => JS.classList.remove('hidden'));
-//esconde novamente todas as cartas
-    let restart1 = document.querySelectorAll('.new_front-face');
-    restart1.forEach(JS => JS.classList.remove('new_front-face'));
-    let restart2 = document.querySelectorAll('.new_back-face');
-    restart2.forEach(JS => JS.classList.remove('new_back-face'));
-//deixa apenas a classe container nessa tag(para redefinir o tamanho do container)
-    let elemento = document.querySelector('.container');
-    elemento.className = "container";
-//chama novamente a função da dificuldade para redefinir o tamanho do container e a quantidade de cartas na tela
-    DIFFICULTY();
+    if (replay === 'sim') {
+
+    //"zera" o valor das variaveis necessárias para a função onclick funcionar do "zero" 
+        IMG1 ='';
+        IMG2 ='';
+        contador = 0;
+        victoryPTs = 0;
+        victory = 0;
+        QTDcartas = 0;
+    //chama novamente a função para ser perguntada a quantidade de cartas ao usuario
+        START();
+    //chama novamente a função para reembaralhar
+        MESS();
+    //remove o hidden de todas as cartas para que elas possam ser "recolocadas" com a função DIFFICULTY() usando os valores da START();
+        let reDO = document.querySelectorAll('.hidden');
+        reDO.forEach(JS => JS.classList.remove('hidden'));
+    //esconde novamente todas as cartas
+        let restart1 = document.querySelectorAll('.new_front-face');
+        restart1.forEach(JS => JS.classList.remove('new_front-face'));
+        let restart2 = document.querySelectorAll('.new_back-face');
+        restart2.forEach(JS => JS.classList.remove('new_back-face'));
+    //deixa apenas a classe container nessa tag(para redefinir o tamanho do container)
+        let elemento = document.querySelector('.container');
+        elemento.className = "container";
+    //chama novamente a função da dificuldade para redefinir o tamanho do container e a quantidade de cartas na tela
+        DIFFICULTY();
+    } else if (replay === 'não') {
+
+    } else {
+        replay = '';
+        alert('você não digitou sim ou não corretamente, digite novamente')
+
+        EQUALS();
+    }
 }
