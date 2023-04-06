@@ -10,11 +10,6 @@ let QTDcartas = 0;
 /*--------------------------------------------------------------------*/
 let lista_cartas,REcontainer, x,y;
 
-// let REonclick;
-// let clickedORnot = null;
-// controller = 0;
-/*--------------------------------------------------------------------*/
-
 START();
 
 function START() {
@@ -117,43 +112,6 @@ function select(cards) {
 
         NEWback1 = cards.querySelector('.back-face');
         NEWback1.classList.add('new_back-face');
-
-        // //TENTATIVA DE DESATIVAR A CARTA JÁ VIRADA PARA O JOGADOR NÃO FICAR CLICANDO NELA VARIAS VEZES E GANHAR
-
-        // //(1-) clickedORnot está criado globalmente e começa como null
-
-        // //(4-) a segunda vez que for clicado ele iniciará aqui
-        // if (clickedORnot !== null) {
-
-        //     cards.classList.remove('clicked');
-
-        //     cards.setAttribute('onclick', REonclick);
-            
-        //     clickedORnot = null; //(5-) redefine como null para tudo recomeçar do (1-)
-
-        //     controller = 1; //IMPORTANTE: começa como 0 globalmente, 
-        //                     //e por ser definido como 1 aqui, o (3-)
-        //                     //vai ser ativado uma segunda vez
-
-        // } else {
-
-        //     cards.classList.add('clicked');
-
-        //     REonclick = cards.getAttribute('onclick'); //(2-) salva o parametro antes dele ser definido como null
-        //     cards.setAttribute('onclick', null);
-
-        //     controller = 0; //necessário para os ifs continuarem "cliclando"
-
-        // }
-
-        // if (controller === 0) {
-        //     //(3-) define o valor que quero usar, também para entrar no primeiro if no fim
-        //     clickedORnot = document.querySelector('.clicked');
-        //     console.log(clickedORnot);
-        //     controller = 0; //zera para todo o ciclo recomeçar
-
-        //     cards.setAttribute('onclick', REonclick);
-        // } 
 
     } else if (contador === 1) {
 
