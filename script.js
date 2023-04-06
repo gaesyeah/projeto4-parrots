@@ -36,6 +36,7 @@ function START() {
     if (QTDcartas < 4 || QTDcartas > 14 || resto !== 0) {
         QTDcartas = prompt("Escolha novamente, só é possivel jogar com 4 a 14 cartas, e precisa ser um número par");
         resto = QTDcartas % 2;
+        
         while (QTDcartas < 4 || QTDcartas > 14 || resto !== 0) {
             QTDcartas = prompt("Escolha novamente, só é possivel jogar com 4 a 14 cartas, e precisa ser um número par");
             resto = QTDcartas % 2;
@@ -182,6 +183,12 @@ function VERIFY() {
 eu precisei dentro do else fazer uma verificação somente com IMG1 === IMG2 para uma carta 
 só não virar, mas isso possibilitou a quantidade de victory ser maior que a de QTDcartas 
 antes da partida acabar, o que não acontecia antes de eu resolver o tal consagrado bug*/
+
+/*OBS: O primeiro problema era o jogo acabar caso o jogador clicasse na mesma carta várias
+vezes, após isso foi a carta poder ser desvirada ao ser clicada novamente, e por fim,
+ATUALMENTE, mesmo sem esses problemas é possivel que a carta seja clicada novamente
+e assim isso é reconhecido e levado em consideração pelo código, afetando negativamente o jogo*/
+
         if (victory >= QTDcartas) { 
             setTimeout(function(){
                 alert(`Você ganhou em ${victoryPTs} jogadas! A duração do jogo foi de ${cronometro} segundos!`);
@@ -214,7 +221,7 @@ function EQUALS() {
     
     cronSTOP(); //para o cronometro
 
-    let replay = prompt('Gostaria de reiniciar a partida? (sim ou não)')
+    let replay = prompt('Você gostaria de reiniciar a partida? (sim ou não)')
 
     if (replay === 'sim') {
 
