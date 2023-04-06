@@ -175,7 +175,7 @@ function VERIFY() {
 
     ANTIbug();
 
-    if (IMG1 === IMG2) {
+    if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
         victory = victory + 2;
 
         if (victory == QTDcartas) {
