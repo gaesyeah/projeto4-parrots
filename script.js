@@ -9,6 +9,23 @@ let victory = 0; /*conta quantas vezes o jogador acertou os pares, e na function
 let QTDcartas = 0;
 /*--------------------------------------------------------------------*/
 let lista_cartas,REcontainer, x,y;
+/*--------------------------------------------------------------------*/
+let cronometro = 0;
+let stop;
+
+function cronometer(){
+    if (victory !== QTDcartas) {
+        cronometro++;
+        console.log(cronometro);
+
+        let add = document.querySelector('.time');
+        add.innerHTML = `<p>${cronometro}</p>`;
+    }
+}
+function cronSTOP(){
+    clearInterval(stop);
+}
+/*--------------------------------------------------------------------*/
 
 START();
 
@@ -24,6 +41,9 @@ function START() {
         resto = QTDcartas % 2;
         }
     }
+
+    //inicia o cronometro(função cronometer) e guarda a informação necessária para a função cronSTOP para-lo
+    stop = setInterval(cronometer,1000);
 }
 
 /*variaveis para salvar quais divs estão viradas, para caso sejam diferentes a function DIFFERENT() desvirar elas*/
@@ -105,7 +125,6 @@ function select(cards) {
 
         IMG1 = cards.querySelector('.identifier').innerText;
         htmlIMG1 = cards.querySelector('.face').innerHTML;
-        console.log(htmlIMG1);
 
         NEWfront1 = cards.querySelector('.front-face');
         NEWfront1.classList.add('new_front-face');
@@ -119,7 +138,6 @@ function select(cards) {
 
         IMG2 = cards.querySelector('.identifier').innerText;
         htmlIMG2 = cards.querySelector('.face').innerHTML;
-        console.log(htmlIMG2);
 
         NEWfront2 = cards.querySelector('.front-face');
         NEWfront2.classList.add('new_front-face');
@@ -162,7 +180,7 @@ function VERIFY() {
 
         if (victory == QTDcartas) {
             setTimeout(function(){
-                alert(`Você ganhou em ${victoryPTs} jogadas!`);
+                alert(`Você ganhou em ${victoryPTs} jogadas! A duração do jogo foi de ${cronometro} segundos!`);
                 EQUALS();
             },100);
         }
@@ -184,6 +202,8 @@ function DIFFERENT() {
 }
 
 function EQUALS() {
+    
+    cronSTOP(); //para o cronometro
 
     let replay = prompt('Gostaria de reiniciar a partida? Por favor, digite sim ou não')
 
@@ -198,6 +218,7 @@ function EQUALS() {
         victoryPTs = 0;
         victory = 0;
         QTDcartas = 0;
+        cronometro = 0;
     //chama novamente a função para ser perguntada a quantidade de cartas ao usuario
         START();
     //chama novamente a função para reembaralhar
@@ -222,7 +243,7 @@ function EQUALS() {
         w.forEach(JS => JS.setAttribute('onclick', null)); 
     } else {
         replay = '';
-        alert('você não digitou sim ou não corretamente, digite novamente')
+        alert('você digitou sim ou não incorretamente, digite novamente')
 
         EQUALS();
     }

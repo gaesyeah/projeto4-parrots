@@ -25,6 +25,10 @@ img{
         align-items: center;
         width: 100%;
     }
+    p {
+        margin-top: 2.65px;
+        font-size: 30px;
+    }
 }
 /*ADICIONAR CLASSES QUE DEFINEM O TAMANHO, E APLICA-LAS BASEADO NA QUANTIDADE DE CARTAS QUE O JOGADOR ESCOLHEU*/
 .container{
@@ -59,3 +63,23 @@ img{
 .size5{
     width: 1404px;
 }
+/*----------------------------------------*/
+.time {
+    background-color: rgba(36, 36, 36, 0.555);
+    right: 0;
+    top: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+p{
+    margin-top: 4.5px;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    font-family: 'Roboto';
+    font-weight: bolder;
+}
+
