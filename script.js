@@ -179,18 +179,6 @@ function VERIFY() {
     if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
         victory = victory + 2;
 
-/*IMPORTANTE: botei maior ou igual(>=) pq ao implementar a verificação com htmlIMG1 e htmlIMG2, 
-eu precisei dentro do else fazer uma verificação somente com IMG1 === IMG2 para uma carta 
-só não virar ao ser clicada 2x, mas isso possibilitou a quantidade de victory ser maior que a de QTDcartas 
-antes da partida acabar, o que não acontecia antes de eu resolver o tal consagrado bug*/
-
-/*OBS: O primeiro problema era o jogo acabar caso o jogador clicasse na mesma carta várias
-vezes, após isso foi a carta poder ser desvirada ao ser clicada novamente, e por fim,
-NÃO MAIS...era possivel que a carta fosse clicada novamente e assim isso era reconhecido e 
-levado em consideração pelo código, afetando negativamente o jogo*/
-
-//OBS2: Ainda é possivel causar erros, mas são mais raros e nem sei o que pode estar os causando.
-
         if (victory >= QTDcartas) { 
             setTimeout(function(){
                 alert(`Você ganhou em ${victoryPTs} jogadas! A duração do jogo foi de ${cronometro} segundos!`);
@@ -204,15 +192,6 @@ levado em consideração pelo código, afetando negativamente o jogo*/
             DIFFERENT();
         },1000);
 
-        if (IMG1 === IMG2) {
-            
-        } else {
-
-            setTimeout(function(){
-                DIFFERENT();
-            },1000);
-
-        }
     }
 }
 
