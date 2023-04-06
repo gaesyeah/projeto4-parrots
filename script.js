@@ -37,8 +37,8 @@ function START() {
         QTDcartas = prompt("Escolha novamente, só é possivel jogar com 4 a 14 cartas, e precisa ser um número par");
         resto = QTDcartas % 2;
         while (QTDcartas < 4 || QTDcartas > 14 || resto !== 0) {
-        QTDcartas = prompt("Escolha novamente, só é possivel jogar com 4 a 14 cartas, e precisa ser um número par");
-        resto = QTDcartas % 2;
+            QTDcartas = prompt("Escolha novamente, só é possivel jogar com 4 a 14 cartas, e precisa ser um número par");
+            resto = QTDcartas % 2;
         }
     }
 
@@ -178,7 +178,10 @@ function VERIFY() {
     if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
         victory = victory + 2;
 
-/*IMPORTANTE: botei maior ou igual pq ao implementar a verificação com htmlIMG1 e htmlIMG2, eu precisei dentro do else fazer uma verificação somente com IMG1 === IMG2 para uma carta só não virar, mas isso possibilitou a quantidade de victory ser maior que a de QTDcartas antes da partida acabar, o que não acontecia antes de eu resolver o tal consagrado bug*/
+/*IMPORTANTE: botei maior ou igual pq ao implementar a verificação com htmlIMG1 e htmlIMG2, 
+eu precisei dentro do else fazer uma verificação somente com IMG1 === IMG2 para uma carta 
+só não virar, mas isso possibilitou a quantidade de victory ser maior que a de QTDcartas 
+antes da partida acabar, o que não acontecia antes de eu resolver o tal consagrado bug*/
         if (victory >= QTDcartas) { 
             setTimeout(function(){
                 alert(`Você ganhou em ${victoryPTs} jogadas! A duração do jogo foi de ${cronometro} segundos!`);
@@ -189,9 +192,11 @@ function VERIFY() {
         if (IMG1 === IMG2) {
             
         } else {
+
             setTimeout(function(){
                 DIFFERENT();
             },1000);
+
         }
     }
 }
