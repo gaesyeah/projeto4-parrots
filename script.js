@@ -175,7 +175,7 @@ function VERIFY() {
 
     ANTIbug();
 
-    if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
+    if (IMG1 === IMG2) {
         victory = victory + 2;
 
         if (victory == QTDcartas) {
@@ -205,7 +205,7 @@ function EQUALS() {
     
     cronSTOP(); //para o cronometro
 
-    let replay = prompt('Gostaria de reiniciar a partida? Por favor, digite sim ou não')
+    let replay = prompt('Gostaria de reiniciar a partida?')
 
     if (replay === 'sim') {
 
