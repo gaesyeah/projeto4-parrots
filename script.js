@@ -179,8 +179,6 @@ function VERIFY() {
     if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
         victory = victory + 2;
 
-//EXTRA: nessa versão eu voltei com o bug da carta poder ser virada após ser clicada 2x, é menos desagradavel que o novo anterior.
-
 /*IMPORTANTE: botei maior ou igual(>=) pq ao implementar a verificação com htmlIMG1 e htmlIMG2, 
 eu precisei dentro do else fazer uma verificação somente com IMG1 === IMG2 para uma carta 
 só não virar ao ser clicada 2x, mas isso possibilitou a quantidade de victory ser maior que a de QTDcartas 
@@ -195,12 +193,22 @@ e assim isso é reconhecido e levado em consideração pelo código, afetando ne
                 EQUALS();
             },100);
         }
+
     } else {
 
         setTimeout(function(){
             DIFFERENT();
         },1000);
 
+        if (IMG1 === IMG2) {
+            
+        } else {
+
+            setTimeout(function(){
+                DIFFERENT();
+            },1000);
+
+        }
     }
 }
 
