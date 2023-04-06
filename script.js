@@ -146,7 +146,7 @@ function select(cards) {
 
         VERIFY();
 
-    } else if (contador === 2) {
+    } else if (contador === 2) { //não precisava ser === 2, só botei para ficar semantico, por conta da parte da função VERIFY() que define o contador como 2
 
         IMG2 = cards.querySelector('.identifier').innerText;
         htmlIMG2 = cards.querySelector('.face').innerHTML;
@@ -188,7 +188,7 @@ function VERIFY() {
 
     if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
 
-        victoryPTs = victoryPTs + 2;
+        victoryPTs = victoryPTs + 2; //ACERTOU, foram duas jogadas
 
         victory = victory + 2;
 
@@ -202,19 +202,19 @@ function VERIFY() {
         }
 
     } else {
-
-        if (IMG1 === IMG2) {
+        //victoryPTs não é alterado aqui, pois o jogador clicou na mesma carta
+        if (IMG1 === IMG2) { 
                           //entra aqui somente caso o jogador clique novamente na mesma carta, pois htmlIMG1 !== htmlIMG2 deu falso
             contador = 2; //assim o contador é mudado especificamente para 2, o que faz entrar no novo caso(terceiro) 
                           //da função select(cards), que é exatamente igual ao segundo, o que quebra totalmente o problema
         } else {
 
-            victoryPTs = victoryPTs + 2;
+            victoryPTs = victoryPTs + 2; //ERROU, foram duas jogadas
 
             setTimeout(function(){
                 DIFFERENT();
             },1000);
-            
+
         }
     }
 }
@@ -265,9 +265,12 @@ function EQUALS() {
         DIFFICULTY();
         
     } else if (replay === 'não') {
-        let z = document.querySelector('.container');
-        let w = z.querySelectorAll('div');
-        w.forEach(JS => JS.setAttribute('onclick', null)); 
+        //sem o setTimeout não funciona, creio que porque o momento que o prompt é ativado as cartas estão sob o funcionamento da function ANTIBUG(), que aguarda 1 segundo
+        setTimeout(function(){
+            const stop = document.querySelectorAll('.card');
+            stop.forEach(JS => JS.onclick = null);
+        },1000);
+
     } else {
         replay = '';
         alert('você digitou sim ou não incorretamente, digite novamente')
