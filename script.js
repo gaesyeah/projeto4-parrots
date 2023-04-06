@@ -178,17 +178,21 @@ function VERIFY() {
     if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
         victory = victory + 2;
 
-        if (victory == QTDcartas) {
+/*IMPORTANTE: botei maior ou igual pq ao implementar a verificação com htmlIMG1 e htmlIMG2, eu precisei dentro do else fazer uma verificação somente com IMG1 === IMG2 para uma carta só não virar, mas isso possibilitou a quantidade de victory ser maior que a de QTDcartas antes da partida acabar, o que não acontecia antes de eu resolver o tal consagrado bug*/
+        if (victory >= QTDcartas) { 
             setTimeout(function(){
                 alert(`Você ganhou em ${victoryPTs} jogadas! A duração do jogo foi de ${cronometro} segundos!`);
                 EQUALS();
             },100);
         }
     } else {
-
-        setTimeout(function(){
-            DIFFERENT();
-        },1000);
+        if (IMG1 === IMG2) {
+            
+        } else {
+            setTimeout(function(){
+                DIFFERENT();
+            },1000);
+        }
     }
 }
 
@@ -205,7 +209,7 @@ function EQUALS() {
     
     cronSTOP(); //para o cronometro
 
-    let replay = prompt('Gostaria de reiniciar a partida?')
+    let replay = prompt('Gostaria de reiniciar a partida? (sim ou não)')
 
     if (replay === 'sim') {
 
