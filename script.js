@@ -1,3 +1,6 @@
+let htmlIMG1; /*guarda todo o innerHTML para verificar se as cartas tem o mesmo texto PORÉM se não são a mesma*/
+let htmlIMG2; /*guarda todo o innerHTML para verificar se as cartas tem o mesmo texto PORÉM se não são a mesma*/
+//-----
 let IMG1; /*guarda o texto(que está como hidden mesmo pra não aparecer) para verificar se as cartas clicadas são iguais*/
 let IMG2; /*guarda o texto(que está como hidden mesmo pra não aparecer) para verificar se as cartas clicadas são iguais*/
 let contador = 0; /*verifica se tem uma, duas ou nenhuma carta selecionada*/
@@ -6,6 +9,10 @@ let victory = 0; /*conta quantas vezes o jogador acertou os pares, e na function
 let QTDcartas = 0;
 /*--------------------------------------------------------------------*/
 let lista_cartas,REcontainer, x,y;
+
+// let REonclick;
+// let clickedORnot = null;
+// controller = 0;
 /*--------------------------------------------------------------------*/
 
 START();
@@ -99,10 +106,11 @@ function select(cards) {
 
     if (contador === 0) {
 
-        victoryPTs = victoryPTs + 1;
-
         contador++;
+
         IMG1 = cards.querySelector('.identifier').innerText;
+        htmlIMG1 = cards.querySelector('.face').innerHTML;
+        console.log(htmlIMG1);
 
         NEWfront1 = cards.querySelector('.front-face');
         NEWfront1.classList.add('new_front-face');
@@ -110,12 +118,50 @@ function select(cards) {
         NEWback1 = cards.querySelector('.back-face');
         NEWback1.classList.add('new_back-face');
 
+        // //TENTATIVA DE DESATIVAR A CARTA JÁ VIRADA PARA O JOGADOR NÃO FICAR CLICANDO NELA VARIAS VEZES E GANHAR
+
+        // //(1-) clickedORnot está criado globalmente e começa como null
+
+        // //(4-) a segunda vez que for clicado ele iniciará aqui
+        // if (clickedORnot !== null) {
+
+        //     cards.classList.remove('clicked');
+
+        //     cards.setAttribute('onclick', REonclick);
+            
+        //     clickedORnot = null; //(5-) redefine como null para tudo recomeçar do (1-)
+
+        //     controller = 1; //IMPORTANTE: começa como 0 globalmente, 
+        //                     //e por ser definido como 1 aqui, o (3-)
+        //                     //vai ser ativado uma segunda vez
+
+        // } else {
+
+        //     cards.classList.add('clicked');
+
+        //     REonclick = cards.getAttribute('onclick'); //(2-) salva o parametro antes dele ser definido como null
+        //     cards.setAttribute('onclick', null);
+
+        //     controller = 0; //necessário para os ifs continuarem "cliclando"
+
+        // }
+
+        // if (controller === 0) {
+        //     //(3-) define o valor que quero usar, também para entrar no primeiro if no fim
+        //     clickedORnot = document.querySelector('.clicked');
+        //     console.log(clickedORnot);
+        //     controller = 0; //zera para todo o ciclo recomeçar
+
+        //     cards.setAttribute('onclick', REonclick);
+        // } 
+
     } else if (contador === 1) {
 
-        victoryPTs = victoryPTs + 1;
-
         contador++;
+
         IMG2 = cards.querySelector('.identifier').innerText;
+        htmlIMG2 = cards.querySelector('.face').innerHTML;
+        console.log(htmlIMG2);
 
         NEWfront2 = cards.querySelector('.front-face');
         NEWfront2.classList.add('new_front-face');
@@ -147,11 +193,13 @@ function ANTIbug() {
 }
 function VERIFY() {
 
+    victoryPTs = victoryPTs + 2;
+
     contador = 0; /*PARA ZERAR O VALOR DO CONTADOR*/
 
     ANTIbug();
 
-    if (IMG1 === IMG2) {
+    if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
         victory = victory + 2;
 
         if (victory == QTDcartas) {
@@ -184,6 +232,8 @@ function EQUALS() {
     if (replay === 'sim') {
 
     //"zera" o valor das variaveis necessárias para a função onclick funcionar do "zero" 
+        htmlIMG1 = '';
+        htmlIMG2 = '';
         IMG1 ='';
         IMG2 ='';
         contador = 0;
