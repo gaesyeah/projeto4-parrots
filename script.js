@@ -135,7 +135,18 @@ function select(cards) {
 
     } else if (contador === 1) {
 
-        contador++;
+        IMG2 = cards.querySelector('.identifier').innerText;
+        htmlIMG2 = cards.querySelector('.face').innerHTML;
+
+        NEWfront2 = cards.querySelector('.front-face');
+        NEWfront2.classList.add('new_front-face');
+        
+        NEWback2 = cards.querySelector('.back-face');
+        NEWback2.classList.add('new_back-face');
+
+        VERIFY();
+
+    } else if (contador === 2) {
 
         IMG2 = cards.querySelector('.identifier').innerText;
         htmlIMG2 = cards.querySelector('.face').innerHTML;
@@ -147,6 +158,7 @@ function select(cards) {
         NEWback2.classList.add('new_back-face');
 
         VERIFY();
+
     }
 }
 function ANTIbug() {
@@ -170,28 +182,40 @@ function ANTIbug() {
 }
 function VERIFY() {
 
-    victoryPTs = victoryPTs + 2;
-
     contador = 0; /*PARA ZERAR O VALOR DO CONTADOR*/
 
     ANTIbug();
 
     if (IMG1 === IMG2 && htmlIMG1 !== htmlIMG2) {
+
+        victoryPTs = victoryPTs + 2;
+
         victory = victory + 2;
 
         if (victory >= QTDcartas) { 
+
             setTimeout(function(){
                 alert(`Você ganhou em ${victoryPTs} jogadas! A duração do jogo foi de ${cronometro} segundos!`);
                 EQUALS();
             },100);
+
         }
 
     } else {
 
-        setTimeout(function(){
-            DIFFERENT();
-        },1000);
+        if (IMG1 === IMG2) {
+                          //entra aqui somente caso o jogador clique novamente na mesma carta, pois htmlIMG1 !== htmlIMG2 deu falso
+            contador = 2; //assim o contador é mudado especificamente para 2, o que faz entrar no novo caso(terceiro) 
+                          //da função select(cards), que é exatamente igual ao segundo, o que quebra totalmente o problema
+        } else {
 
+            victoryPTs = victoryPTs + 2;
+
+            setTimeout(function(){
+                DIFFERENT();
+            },1000);
+            
+        }
     }
 }
 
