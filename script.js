@@ -211,9 +211,7 @@ function VERIFY() {
 
             victoryPTs = victoryPTs + 2; //ERROU, foram duas jogadas
 
-            setTimeout(function(){
-                DIFFERENT();
-            },1000);
+            setTimeout(DIFFERENT,1000);
 
         }
     }
@@ -270,7 +268,6 @@ function EQUALS() {
             const stop = document.querySelectorAll('.card');
             stop.forEach(JS => JS.onclick = null);
         },1000);
-
     } else {
         replay = '';
         alert('você digitou sim ou não incorretamente, digite novamente')
