@@ -120,6 +120,10 @@ function DIFFICULTY(){
 
 function select(cards) {
 
+    if (cards.innerHTML.contains('.new_front-face')){ //podia ser a new_back-face também
+        return;
+    }
+
     if (contador === 0) {
 
         contador++;
@@ -146,20 +150,8 @@ function select(cards) {
 
         VERIFY();
 
-    } else if (contador === 2) { //não precisava ser === 2, só botei para ficar semantico, por conta da parte da função VERIFY() que define o contador como 2
+    } 
 
-        IMG2 = cards.querySelector('.identifier').innerText;
-        htmlIMG2 = cards.querySelector('.face').innerHTML;
-
-        NEWfront2 = cards.querySelector('.front-face');
-        NEWfront2.classList.add('new_front-face');
-        
-        NEWback2 = cards.querySelector('.back-face');
-        NEWback2.classList.add('new_back-face');
-
-        VERIFY();
-
-    }
 }
 function ANTIbug() {
     //DESABILITA O ONCLICK DE TODAS AS CARTAS POR 1 SEGUNDO
@@ -205,8 +197,8 @@ function VERIFY() {
         //victoryPTs não é alterado aqui, pois o jogador clicou na mesma carta
         if (IMG1 === IMG2) { 
                           //entra aqui somente caso o jogador clique novamente na mesma carta, pois htmlIMG1 !== htmlIMG2 deu falso
-            contador = 2; //assim o contador é mudado especificamente para 2, o que faz entrar no novo caso(terceiro) 
-                          //da função select(cards), que é exatamente igual ao segundo, o que quebra totalmente o problema
+            contador = 1; //assim o contador é mudado especificamente para 1, o que faz o próximo clique ser identificado como segundo, não primeiro
+            
         } else {
 
             victoryPTs = victoryPTs + 2; //ERROU, foram duas jogadas
