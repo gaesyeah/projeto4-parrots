@@ -120,10 +120,6 @@ function DIFFICULTY(){
 
 function select(cards) {
 
-    if (cards.innerHTML.contains('.new_front-face')){ //podia ser a new_back-face também
-        return;
-    }
-
     if (contador === 0) {
 
         contador++;
