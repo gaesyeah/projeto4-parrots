@@ -122,10 +122,6 @@ function select(cards) {
 
     if (contador === 0) {
 
-        if (cards.innerHTML.contains('.new_back-face')){ //podia ser a new_back-face também
-            return;
-        }
-
         contador++;
 
         IMG1 = cards.querySelector('.identifier').innerText;
