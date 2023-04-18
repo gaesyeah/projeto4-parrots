@@ -7,6 +7,7 @@ let contador = 0; /*verifica se tem uma, duas ou nenhuma carta selecionada*/
 let victoryPTs = 0; /*conta quantas vezes o jogador clicou em cartas*/
 let victory = 0; /*conta quantas vezes o jogador acertou os pares, e na function VERIFY() é verificado se esse numero é igual a QTDcartas*/
 let QTDcartas = 0;
+let block;
 /*--------------------------------------------------------------------*/
 let lista_cartas,REcontainer, x,y;
 /*--------------------------------------------------------------------*/
@@ -203,6 +204,7 @@ function VERIFY() {
 
         }
     }
+
 }
 
 /*gira as cartas para a posição original caso elas não sejam iguais*/
