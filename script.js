@@ -120,6 +120,11 @@ function DIFFICULTY(){
 
 function select(cards) {
 
+    const verify = cards.querySelector('.new_front-face');
+    if (verify !== null) {
+        return;
+    }
+
     if (contador === 0) {
 
         contador++;
